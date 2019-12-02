@@ -1,9 +1,29 @@
 # How to use this Module Tracking
->------------------**JumpingJIVE**------------------\
+>---------**JumpingJIVE**---------\
 >Author: Chenyang Liu
+
+## A Brief Introduction
+ 
+ Aiming for collecting information of certain websites, which show the current usage and information respectively for
+ HDD and antennas, there are 5 scripts in total. <br>
+ 
+ **connect.py** is used to connect the PostgreSQL database. <br>
+ This script is automatically called by antenna.py, record.py and report.py before accessing the database.
+ 
+ **Antenna.py** is for reading different antennas/stations into the TABLE `stations`.<br>
+ This script is used to update the new antennas in use. 
+ 
+ **record.py** is to read the current usage for each antenna and store new records into the TABLE `capacity`.<br>
+ This script keeps running with a given gap between each loop, adding every new record into the database. 
+ 
+ **report.py** filter the latest information for each unique pair, i.e. antenna-VSN-schedule, including the last records
+ in history and the newest records at present.<br>
+ 
+ **htmlGenerator.py** finally generate the reader-friendly result of report.py in html format.
+
 ##  Installation
 ### MacOS
->More informations in
+>More information in
 >[Getting Started with PostgreSQL on Mac OSX](
 https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
 , [How to setup PostgreSQL on MacOS](https://www.robinwieruch.de/postgres-sql-macos-setup) and
@@ -58,5 +78,31 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
 1. 
 
 
-## install package for python3
-###
+## Installing packages
+ 
+For capturing and filtering the data from desired websites, several packages for Python are needed. 
+
+### Beautiful Soup
+>More information in [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+On Debian or Ubuntu Linux, you can install Beautiful Soup with the system package manager:
+
+<pre>apt-get install python-bs4 </pre> or
+<pre>apt-get install python3-bs4 </pre> 
+
+Beautiful Soup 4 is published through PyPi, so if you can’t install it with the system packager, 
+you can install it with `easy_install` **or** `pip`. <br>
+The package name is beautifulsoup4, and the same package works on Python 2 and Python 3. 
+(pip3 and easy_install3 respectively for Python 3).
+
+<pre>easy_install beautifulsoup4
+pip install beautifulsoup4 </pre> 
+
+### Yattag
+> More information in [Download and install yattag](https://www.yattag.org/download-install)
+
+Use pip to install yattag:
+
+<pre>pip install yattag</pre>
+
+Or `pip-python3` instead of `pip` for Python 3 environment.
