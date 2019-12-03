@@ -25,9 +25,11 @@
  The usage is simple. First enumerate all antennas into database by running **antenna.py**. With the given names of
  antenna, then you are able to keep **record.py** running. After having some data by recording, you could run the 
  **htmlGenerator.py** to have a view at selected information from two new generated `.html` files. The **connect.py**
- and **report.py** are called automatically, if the path is clear.
+ and **report.py** are called automatically, if the path during importing is clear.
 
 ##  Installation
+Through installation you would have the all necessary packages installed in your system and the database with matching
+roll and database. Afterwards you could run all scripts without problem.
 ### MacOS
 >More information in
 >[Getting Started with PostgreSQL on Mac OSX](

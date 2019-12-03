@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0dd3ebd-98af-4923-84b0-458ee98e792d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Instruction.md" beforeDir="false" afterPath="$PROJECT_DIR$/Instruction.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/historyVSN.html" beforeDir="false" afterPath="$PROJECT_DIR$/historyVSN.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/htmlGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latestAntenna.html" beforeDir="false" afterPath="$PROJECT_DIR$/latestAntenna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/record.py" beforeDir="false" afterPath="$PROJECT_DIR$/record.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.py" beforeDir="false" afterPath="$PROJECT_DIR$/report.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +40,8 @@
         <entry file="file://$PROJECT_DIR$/Instruction.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="405">
-                <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+              <first_editor relative-caret-position="246">
+                <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
               </first_editor>
               <second_editor />
             </state>
@@ -233,12 +228,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575368453537</updated>
-      <workItem from="1575368454865" duration="17231000" />
+      <workItem from="1575368454865" duration="17751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17231000" />
+    <option name="totallyTimeSpent" value="17751000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="23" width="1866" height="1177" extended-state="0" />
@@ -460,8 +455,8 @@
     <entry file="file://$PROJECT_DIR$/Instruction.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="405">
-            <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+          <first_editor relative-caret-position="246">
+            <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
           </first_editor>
           <second_editor />
         </state>
