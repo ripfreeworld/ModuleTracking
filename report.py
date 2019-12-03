@@ -11,10 +11,7 @@ historyList_VSN_lastState = []
 antennaCounter_dict = {}
 vsnCounter_dict = {}
 
-
-
 # DISTINCT ON is for PostSQL only
-
 cursor.execute('''SELECT DISTINCT ON (whichAntenna, AorB)
                       whichAntenna, Schedule, AorB, VSN, mtime, remainingGB, remainingPer
                   FROM capacity
@@ -22,7 +19,6 @@ cursor.execute('''SELECT DISTINCT ON (whichAntenna, AorB)
 lastRecords = cursor.fetchall()
 for lr in lastRecords:
     newRecordList.append(lr)
-    print(lr)
 
 cursor.execute('''SELECT DISTINCT whichAntenna FROM capacity 
                   ORDER BY whichAntenna ASC''')

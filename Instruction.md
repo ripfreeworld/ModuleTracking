@@ -16,10 +16,10 @@
  **record.py** is to read the current usage for each antenna and store new records into the TABLE `capacity`.<br>
  This script keeps running with a given gap between each loop, adding every new record into the database. 
  
- **report.py** filter the latest information for each unique pair, i.e. antenna-VSN-schedule, including the last records
- in history and the newest records at present.<br>
+ **report.py** filters the information and generates two html files, which shows the latest status of antenna 
+ and the history of VSN, respectively. <br>
  
- **htmlGenerator.py** finally generate the reader-friendly result of report.py in html format.
+ **htmlGenerator.py** finally generate the reader-friendly result from report.py into html format.
 
 ##  Installation
 ### MacOS
@@ -74,7 +74,8 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     
 8.  At last, you could try to run the python script `connect.py` to see if it shows the result `Connected...`
 ### Ubuntu
-
+>More information in
+>[Getting Started with PostgreSQL](https://www.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html)
 1. 
 
 

@@ -93,4 +93,4 @@ with tag('html'):
 
 result = doc.getvalue()
 
-create_file("historyAntenna.html")
+create_file("historyVSN.html")
