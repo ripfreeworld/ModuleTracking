@@ -87,7 +87,7 @@ For capturing and filtering the data from desired websites, several packages for
 
 On Debian or Ubuntu Linux, you can install Beautiful Soup with the system package manager:
 
-<pre>apt-get install python-bs4 </pre> or
+<pre>apt-get install python-bs4 </pre> or for python3:
 <pre>apt-get install python3-bs4 </pre> 
 
 Beautiful Soup 4 is published through PyPi, so if you can’t install it with the system packager, 
