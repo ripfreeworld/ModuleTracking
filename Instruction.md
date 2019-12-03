@@ -10,7 +10,7 @@
  **connect.py** is used to connect the PostgreSQL database. <br>
  This script is automatically called by antenna.py, record.py and report.py before accessing the database.
  
- **Antenna.py** is for reading different antennas/stations into the TABLE `stations`.<br>
+ **antenna.py** is for reading different antennas/stations into the TABLE `stations`.<br>
  This script is used to update the new antennas in use. 
  
  **record.py** is to read the current usage for each antenna and store new records into the TABLE `capacity`.<br>
@@ -20,6 +20,12 @@
  and the history of VSN, respectively. <br>
  
  **htmlGenerator.py** finally generate the reader-friendly result from report.py into html format.
+ 
+ ### How to use
+ The usage is simple. First enumerate all antennas into database by running **antenna.py**. With the given names of
+ antenna, then you are able to keep **record.py** running. After having some data by recording, you could run the 
+ **htmlGenerator.py** to have a view at selected information from two new generated `.html` files. The **connect.py**
+ and **report.py** are called automatically, if the path is clear.
 
 ##  Installation
 ### MacOS

@@ -94,3 +94,4 @@ with tag('html'):
 result = doc.getvalue()
 
 create_file("historyVSN.html")
+

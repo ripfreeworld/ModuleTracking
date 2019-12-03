@@ -12,10 +12,10 @@ antennaCounter_dict = {}
 vsnCounter_dict = {}
 
 # DISTINCT ON is for PostSQL only
-cursor.execute('''SELECT DISTINCT ON (whichAntenna, AorB)
-                      whichAntenna, Schedule, AorB, VSN, mtime, remainingGB, remainingPer
+cursor.execute('''SELECT DISTINCT ON (whichAntenna, hdd_slot)
+                      whichAntenna, Schedule, hdd_slot, VSN, mtime, remainingGB, remainingPer
                   FROM capacity
-                  ORDER BY whichAntenna, AorB, created_at DESC ''')
+                  ORDER BY whichAntenna, hdd_slot, created_at DESC ''')
 lastRecords = cursor.fetchall()
 for lr in lastRecords:
     newRecordList.append(lr)
@@ -33,7 +33,7 @@ for aTuple in newRecordList:
 # it means these VSN are used more than once
 # all unique VSN means also all newest VSN
 cursor.execute('''SELECT DISTINCT ON (VSN)
-                      VSN, whichAntenna, Schedule, AorB, mtime, remainingGB, remainingPer, created_at
+                      VSN, whichAntenna, Schedule, hdd_slot, mtime, remainingGB, remainingPer, created_at
                   FROM capacity
                   ORDER BY VSN, created_at DESC ''')
 VSN_lastState = cursor.fetchall()
@@ -43,7 +43,7 @@ for vl in VSN_lastState:
 # all unique combinations of VSN-Antenna-Schedule
 # because even the same VSN-Antenna combination could have not only one schedule
 cursor.execute('''SELECT DISTINCT ON (VSN, whichAntenna, schedule)
-                      VSN, whichAntenna, Schedule, AorB, mtime, remainingGB, remainingPer, created_at
+                      VSN, whichAntenna, Schedule, hdd_slot, mtime, remainingGB, remainingPer, created_at
                   FROM capacity
                   ORDER BY VSN, whichAntenna, schedule, created_at DESC 
                   ''')

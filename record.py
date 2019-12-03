@@ -14,7 +14,7 @@ if cursor.fetchall()[0][0] is False:
 cursor.execute('''create table IF NOT EXISTS capacity (
                         id SERIAL PRIMARY KEY,
                         whichAntenna varchar(40),
-                        AorB varchar(10) NOT NULL,
+                        hdd_slot varchar(10) NOT NULL,
                         VSN varchar(20) NOT NULL,
                         mtime varchar(40) NOT NULL,
                         remainingGB decimal(10,3) NOT NULL,
@@ -106,17 +106,19 @@ while True:
                 vsn = parent.find_next_siblings()[7].text.strip()
                 if antennaName == stationName and vsn == VSN:
                     schedule = parent.find_next_siblings()[4].text.strip()
+                if schedule == '':
+                    schedule = None
         data = [(stationName, moduleAB, VSN, mtime, remainingGB, remainingPer, checkTime, schedule)]
         print("current information", data)
         # insert into the table capacity
         try:  # ON CONFLICT (stationName, moduleAB, VSN, mtime, checkTime, remainingGB) DO NOTHING
-            cursor.execute("insert into capacity(id, whichAntenna, AorB, VSN, mtime, remainingGB, remainingPer, "
+            cursor.execute("insert into capacity(id, whichAntenna, hdd_slot, VSN, mtime, remainingGB, remainingPer, "
                            "checkTime, schedule) "
                            "values (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s)",
                            (stationName, moduleAB, VSN, mtime, remainingGB, remainingPer, checkTime, schedule))
             print("The current DATA has been successfully added to database!\n")
         except:
-            print("Already in the database!\n")
+            print("Nothing to update.\n")
         finally:
             # without commit(), psycopg2.errors.InFailedSqlTransaction occurs
             conn.commit()
