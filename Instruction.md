@@ -81,7 +81,7 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     Connect the user with database `jumpingjive`:
     <pre>postgres=# GRANT ALL PRIVILEGES ON DATABASE jumpingjive to user_name</pre>
     
-8.  At last, you could try to run the python script `connect.py` to see if       it shows the result `Connected...`
+
 ### Ubuntu
 >More information in
 >[Getting Started with PostgreSQL](https://www.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html)
@@ -125,7 +125,8 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
 
     jumpingjive=> \q</pre>
 
-* Important is, the **name** of `database`, `user` and `password` must match. The `port` is default `5432` 
+* Important is, the `database`, `user` and `password` must match with the script `connect.py`. And the `port` is default `5432`. <br>
+At last, you could run the python script `connect.py` to see if it shows the result `Connected...`
 ## Installing packages
  
 For capturing and filtering the data from desired websites, several packages for Python are needed. 

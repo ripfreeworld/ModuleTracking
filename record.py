@@ -24,6 +24,7 @@ cursor.execute('''create table IF NOT EXISTS capacity (
                         schedule varchar(20),
                         CONSTRAINT no_duplicate UNIQUE (VSN, mtime, checkTime, remainingGB)
                                                   )''')
+                        # the constraint name `no_duplicate` can exist only once in the entire database
 
 conn.commit()
 

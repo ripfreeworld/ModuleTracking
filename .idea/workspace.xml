@@ -4,6 +4,7 @@
     <list default="true" id="a0dd3ebd-98af-4923-84b0-458ee98e792d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Instruction.md" beforeDir="false" afterPath="$PROJECT_DIR$/Instruction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/record.py" beforeDir="false" afterPath="$PROJECT_DIR$/record.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +50,48 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.record">
+    <configuration name="antenna" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ModuleTracking" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/antenna.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="connect" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ModuleTracking" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/connect.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="htmlGenerator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ModuleTracking" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,10 +162,14 @@
       <item itemvalue="Python.htmlGenerator" />
       <item itemvalue="Python.record" />
       <item itemvalue="Python.report" />
+      <item itemvalue="Python.connect" />
+      <item itemvalue="Python.antenna" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.record" />
+        <item itemvalue="Python.antenna" />
+        <item itemvalue="Python.connect" />
         <item itemvalue="Python.htmlGenerator" />
         <item itemvalue="Python.report" />
       </list>
@@ -153,7 +200,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
