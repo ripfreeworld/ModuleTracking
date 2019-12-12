@@ -1,7 +1,7 @@
 # How to use this Module Tracking
 >---------**JumpingJIVE**---------\
->Author: Chenyang Liu
-
+>Author: Chenyang Liu<br>
+>Date: 2019.12.12
 ## A Brief Introduction
  
  Aiming for collecting information of certain websites by [IVS](https://ivscc.gsfc.nasa.gov/program/index.html),
@@ -43,33 +43,33 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     For specific you could read from [Homebrew](https://brew.sh)
 
 2.  Install PostgresSQL:
-    <pre>brew update
-    brew install postgresql</pre>
+    <pre>$ brew update
+    $ brew install postgresql</pre>
     Then check your PostgreSQL version by typing:
-    <pre>postgres --version</pre>
+    <pre>$ postgres --version</pre>
     
 3.  Manually start and stop Postgres:
-    <pre>pg_ctl -D /usr/local/var/postgres start
-    pg_ctl -D /usr/local/var/postgres stop</pre>
+    <pre>$ pg_ctl -D /usr/local/var/postgres start
+    $ pg_ctl -D /usr/local/var/postgres stop</pre>
     Or let Postgres start every time your computer starts up
-    <pre>brew services start postgresql</pre>
+    <pre>$ brew services start postgresql</pre>
     
 4.  Create or remove the user:
-    <pre>createuser user_name
-    dropuser user_name</pre>
+    <pre>$ createuser user_name
+    $ dropuser user_name</pre>
     Log in as superuser:
-    <pre>psql postgres</pre>
+    <pre>$ psql postgres</pre>
     Then you may see `postgres=#` at the beginning of each new line. <br>
 
 5.  Create or remove the database `jumpingjive`:
-    <pre>createdb jumpingjive
-    dropdb jumpingjive</pre>
+    <pre>$ createdb jumpingjive
+    $ dropdb jumpingjive</pre>
     Since the Camel Case is not always meaningful in database, I just use these names in small case at the
     very beginning, i.e. jumpingjive rather than JumpingJIVE to avoid unnecessary mistakes.
 
 6.  Modify the database: <br>
     Log in `jumpingjive` by typing:
-    <pre>psql jumpingjive</pre>
+    <pre>$ psql jumpingjive</pre>
     Set a password:
     <pre>jumpingjive=# \password</pre>
     The password might not be asked because it is set to "trust" for local connections.
@@ -91,7 +91,8 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     Then check your PostgreSQL information by typing:
     <pre>$ dpkg --status postgresql</pre>
 
-2.  The postgresql service is started automatically upon startup. But you
+2.  Manually start and stop Postgres:<br>
+    The postgresql service is started automatically upon startup. But you
     could also do the following:
     <pre>
     $ sudo service postgresql stop     // Stop the service
@@ -101,7 +102,30 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     </pre>
 
 3.  Login as SUPERUSER:<br>
-    The PostgreSQL installation creates a "UNIX USER" called `postgres`, who is ALSO the "Default PostgreSQL's SUPERUSER". 
+    The PostgreSQL installation creates a "UNIX USER" called `postgres`, who is also the "Default PostgreSQL's SUPERUSER". 
+
+4.  Create or remove the user:<br>
+    
+    <pre>$ sudo -u postgres createuser user_name
+    $ sudo -u postgres dropuser user_name</pre>
+    Without the flag `-u postgres` would lead to the following ERROR:
+    <pre>createuser: creation of new role failed: ERROR:  permission denied to create role</pre>
+5.  Create a new database called `jumpingjive`, owned by `user_name`.
+    <pre>$ sudo -u postgres createdb --owner=user_name jumpingjive</pre>
+    With `--owner=`, it's slightly easier than the method given in the MacOS
+    installation.
+
+6.  Restart PostgreSQL server and login:
+    <pre>$ sudo service postgresql restart
+    $ psql -U user_name jumpingjive</pre>
+
+7.  And set password for the current user:
+    <pre>jumpingjive=> \password
+    ......
+
+    jumpingjive=> \q</pre>
+
+* Important is, the **name** of `database`, `user` and `password` must match. The `port` is default `5432` 
 ## Installing packages
  
 For capturing and filtering the data from desired websites, several packages for Python are needed. 
@@ -111,22 +135,24 @@ For capturing and filtering the data from desired websites, several packages for
 
 On Debian or Ubuntu Linux, you can install Beautiful Soup with the system package manager:
 
-<pre>apt-get install python-bs4 </pre> or for python3:
-<pre>apt-get install python3-bs4 </pre> 
+<pre>$ apt-get install python-bs4 </pre> or for python3:
+<pre>$ apt-get install python3-bs4 </pre> 
 
 Beautiful Soup 4 is published through PyPi, so if you can’t install it with the system packager, 
 you can install it with `easy_install` **or** `pip`. <br>
-The package name is beautifulsoup4, and the same package works on Python 2 and Python 3. 
-(pip3 and easy_install3 respectively for Python 3).
 
 <pre>easy_install beautifulsoup4
 pip install beautifulsoup4 </pre> 
+
+The package name is beautifulsoup4, and the same package works on Python 2 and Python 3. (pip3 and easy_install3 respectively for Python 3).
 
 ### Yattag
 > More information in [Download and install yattag](https://www.yattag.org/download-install)
 
 Use pip to install yattag:
 
-<pre>pip install yattag</pre>
+<pre>$ pip install yattag</pre>
 
 Or `pip-python3` instead of `pip` for Python 3 environment.
+<br><br>
+
