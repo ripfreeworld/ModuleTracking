@@ -42,7 +42,7 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     <pre>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</pre>
     For specific you could read from [Homebrew](https://brew.sh)
 
-2.  Install Postgres:
+2.  Install PostgresSQL:
     <pre>brew update
     brew install postgresql</pre>
     Then check your PostgreSQL version by typing:
@@ -81,13 +81,27 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     Connect the user with database `jumpingjive`:
     <pre>postgres=# GRANT ALL PRIVILEGES ON DATABASE jumpingjive to user_name</pre>
     
-8.  At last, you could try to run the python script `connect.py` to see if it shows the result `Connected...`
+8.  At last, you could try to run the python script `connect.py` to see if       it shows the result `Connected...`
 ### Ubuntu
 >More information in
 >[Getting Started with PostgreSQL](https://www.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html)
-1. 
+1.  Refresh the apt-get repository and install PostgreSQL:
+    <pre>$ sudo apt-get update
+    $ sudo apt-get install postgresql postgresql-contrib</pre>
+    Then check your PostgreSQL information by typing:
+    <pre>$ dpkg --status postgresql</pre>
 
+2.  The postgresql service is started automatically upon startup. But you
+    could also do the following:
+    <pre>
+    $ sudo service postgresql stop     // Stop the service
+    $ sudo service postgresql start    // Start the service
+    $ sudo service postgresql restart  // Stop and restart the service
+    $ sudo service postgresql reload   // Reload the configuration without stopping the service
+    </pre>
 
+3.  Login as SUPERUSER:<br>
+    The PostgreSQL installation creates a "UNIX USER" called `postgres`, who is ALSO the "Default PostgreSQL's SUPERUSER". 
 ## Installing packages
  
 For capturing and filtering the data from desired websites, several packages for Python are needed. 
