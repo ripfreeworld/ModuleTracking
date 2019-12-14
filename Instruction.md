@@ -128,7 +128,7 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     <pre>$ sudo -u postgres createuser --login --pwprompt user_name</pre>
     Without the flag `-u postgres` would lead to the following ERROR:
     <pre>createuser: creation of new role failed: ERROR:  permission denied to create role</pre>
-    The password for `postgres` will be asked.
+    Besides setting the password for new role, the password for `postgres` will also be asked.
 
 5.  Create a new database called `jumpingjive`, owned by `user_name`.
     <pre>$ sudo -u postgres createdb --owner=user_name jumpingjive</pre>
