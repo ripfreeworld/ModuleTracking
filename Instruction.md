@@ -102,58 +102,60 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
     </pre>
 
 3.  Login as SUPERUSER:<br>
-    The PostgreSQL installation creates a "UNIX USER" called `postgres`, who is also the "Default PostgreSQL's SUPERUSER". 
+    The PostgreSQL installation creates a "UNIX USER" called `postgres`, who is also the "Default PostgreSQL's SUPERUSER". <br>
+    You could try as following:
+    <pre>$ sudo -u postgres -i
+        $ psql
+        ...
+        $ \q        //quit
+    $ exit</pre>
+    Or
+    <pre>$ sudo -u postgres psql
+    $ \q</pre>
+    And set a password for the default `postgres`
+    <pre>postgres=# \password
+    ......
 
-4.  Create or remove the user:<br>
+    postgres=# \q</pre>
+
+4.  Change the `pg_hba.conf`:<br>
+    Tailor the PostgreSQL configuration file `/etc/postgresql/10/main/pg_hba.conf`(`10` according to your PostgreSQL version) to allow non-default user to login to PostgreSQL Server, by adding the following entry:
+    <pre>local   testdb      testuser                     md5</pre>
+    If you still meet the error later with: `psql: FATAL: Peer authenitication failed for user ...`, the reason might be that you are only allowed to access the local database with default identity, namely `peer` instead of `md5`. You might find solutions from [stackoverflow - psql: FATAL: Peer authenitication failed](https://stackoverflow.com/questions/17443379/psql-fatal-peer-authentication-failed-for-user-dev)
+
+4.  Create another user with a password for login:<br>
     
-    <pre>$ sudo -u postgres createuser user_name
-    $ sudo -u postgres dropuser user_name</pre>
+    <pre>$ sudo -u postgres createuser --login --pwprompt user_name</pre>
     Without the flag `-u postgres` would lead to the following ERROR:
     <pre>createuser: creation of new role failed: ERROR:  permission denied to create role</pre>
+    The password for `postgres` will be asked.
+
 5.  Create a new database called `jumpingjive`, owned by `user_name`.
     <pre>$ sudo -u postgres createdb --owner=user_name jumpingjive</pre>
-    With `--owner=`, it's slightly easier than the method given in the MacOS
-    installation.
 
 6.  Restart PostgreSQL server and login:
     <pre>$ sudo service postgresql restart
     $ psql -U user_name jumpingjive</pre>
 
-7.  And set password for the current user:
-    <pre>jumpingjive=> \password
-    ......
 
-    jumpingjive=> \q</pre>
 
 * Important is, the `database`, `user` and `password` must match with the script `connect.py`. And the `port` is default `5432`. <br>
 At last, you could run the python script `connect.py` to see if it shows the result `Connected...`
 ## Installing packages
  
-For capturing and filtering the data from desired websites, several packages for Python are needed. 
+For capturing and filtering the data from desired websites, several packages for Python are needed. You could install either with the system packager `apt-get` or `pip`.
+
+### psycopg2
+> More information in [psycopg2](https://pypi.org/project/psycopg2/)
+<pre>$ apt-get install python3-psycopg2</pre>
 
 ### Beautiful Soup
 >More information in [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
-On Debian or Ubuntu Linux, you can install Beautiful Soup with the system package manager:
-
-<pre>$ apt-get install python-bs4 </pre> or for python3:
-<pre>$ apt-get install python3-bs4 </pre> 
-
-Beautiful Soup 4 is published through PyPi, so if you can’t install it with the system packager, 
-you can install it with `easy_install` **or** `pip`. <br>
-
-<pre>easy_install beautifulsoup4
-pip install beautifulsoup4 </pre> 
-
-The package name is beautifulsoup4, and the same package works on Python 2 and Python 3. (pip3 and easy_install3 respectively for Python 3).
+<pre>$ apt-get install python3-bs4 </pre>
 
 ### Yattag
 > More information in [Download and install yattag](https://www.yattag.org/download-install)
 
-Use pip to install yattag:
-
-<pre>$ pip install yattag</pre>
-
-Or `pip-python3` instead of `pip` for Python 3 environment.
-<br><br>
+<pre>$ apt-get install python3-yattag</pre>
 
