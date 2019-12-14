@@ -95,16 +95,17 @@ while True:
                             checkTime = commentB.next_element.strip()
 
         if moduleAB is None:
-            print("Neither Module A nor Module B is selected")
+            print("Neither Module A nor Module B is in use")
 
         content = soup2readSchedule.text
+        # convert the string to list of string by whitespace
         list_content = content.split()
         schedule = None
 
         try:
             vsn = list_content[list_content.index("Mark5VSN") + 2]
             if vsn == VSN : # to make sure that the VSN has not changed at the reading moment
-                schedule_index = list_content.index("Schedule ")
+                schedule_index = list_content.index("Schedule")
                 # avoid the situation that schedule is empty. It wouldn't have an empty sting " ", but just nothing
                 if list_content[schedule_index + 3] is not "=":
                     schedule = list_content[schedule_index + 2]
