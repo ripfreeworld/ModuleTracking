@@ -23,14 +23,15 @@
  **htmlGenerator.py** finally generate the reader-friendly result from report.py into html format.
  
  ### How to use
- The usage is simple. First enumerate all antennas into database by running **antenna.py**. With the given names of
+ The usage is simple, compared with the installation. First enumerate all antennas into database by running **antenna.py**. With the given names of
  antenna, then you are able to keep **record.py** running. After having some data by recording, you could run the 
  **htmlGenerator.py** to have a view at selected information from two new generated `.html` files. The **connect.py**
  and **report.py** are called automatically, if the path during importing is clear.
 
 ##  Installation
 Through installation you would have the all necessary packages installed in your system and the database with matching
-roll and database. Afterwards you could run all scripts without problem.
+roll and database. Afterwards you could run all scripts without problem.<br>Based on own experience, I'd like to share the Installation steps here over MacOS and Ubuntu 18.04.
+
 ### MacOS
 >More information in
 >[Getting Started with PostgreSQL on Mac OSX](
@@ -120,24 +121,28 @@ https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-o
 
 4.  Change the `pg_hba.conf`:<br>
     Tailor the PostgreSQL configuration file `/etc/postgresql/10/main/pg_hba.conf`(`10` according to your PostgreSQL version) to allow non-default user to login to PostgreSQL Server, by adding the following entry:
-    <pre>local   testdb      testuser                     md5</pre>
+    <pre>local   jumpingjive      user_name                     md5</pre>
     If you still meet the error later with: `psql: FATAL: Peer authenitication failed for user ...`, the reason might be that you are only allowed to access the local database with default identity, namely `peer` instead of `md5`. You might find solutions from [stackoverflow - psql: FATAL: Peer authenitication failed](https://stackoverflow.com/questions/17443379/psql-fatal-peer-authentication-failed-for-user-dev)
 
-4.  Create another user with a password for login:<br>
+5.  Create another user with a password for login:<br>
     
     <pre>$ sudo -u postgres createuser --login --pwprompt user_name</pre>
     Without the flag `-u postgres` would lead to the following ERROR:
     <pre>createuser: creation of new role failed: ERROR:  permission denied to create role</pre>
     Besides setting the password for new role, the password for `postgres` will also be asked.
 
-5.  Create a new database called `jumpingjive`, owned by `user_name`.
+6.  Create a new database called `jumpingjive`, owned by `user_name`.
     <pre>$ sudo -u postgres createdb --owner=user_name jumpingjive</pre>
 
-6.  Restart PostgreSQL server and login:
+7.  Restart PostgreSQL server and login:
     <pre>$ sudo service postgresql restart
     $ psql -U user_name jumpingjive</pre>
 
-
+9.  **Alternative**:
+    If you have trouble with accessing the database you just created. You could also try the easier way to run the program using the default database `postgres` with the default user `postgres`, instead of using new database and user, after you have the PostgreSQL installed on your computer.<br>
+    Access your default database by typing:
+    <pre>sudo -u postgres psql</pre>
+    And set a password for this database as shown in *step 5*. The corresponding variables `database` and `user` of `connect.py` should be `postgres`. 
 
 * Important is, the `database`, `user` and `password` must match with the script `connect.py`. And the `port` is default `5432`. <br>
 At last, you could run the python script `connect.py` to see if it shows the result `Connected...`
